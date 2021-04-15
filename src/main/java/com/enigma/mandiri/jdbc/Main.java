@@ -16,12 +16,10 @@ public class Main {
         //Connected to postgreSql
         try (Connection connection = DriverManager.getConnection(
                 "jdbc:postgresql://localhost:5432/gold_market_db", "postgres", "");
-             PreparedStatement preparedStatement = connection.prepareStatement(Query.SQL_SELECT);) {
-
+             PreparedStatement preparedStatement = connection.prepareStatement(Query.SQL_SELECT_BY_ID)) {
+            preparedStatement.setString(1, "P003");
             ResultSet resultSet = preparedStatement.executeQuery();
-
             while (resultSet.next()) {
-
                 String id = resultSet.getString("product_id");
                 String productName = resultSet.getString("product_name");
                 Integer productBuyPrice = resultSet.getInt("product_price_buy");
