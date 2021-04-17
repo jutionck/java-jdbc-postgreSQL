@@ -12,7 +12,7 @@ public class ConnectDb {
         if(connection == null) {
             try {
                 Class.forName("org.postgresql.Driver");
-                String urlDB = "jdbc:postgresql://localhost:5432/gold_market_db";
+                String urlDB = "jdbc:postgresql://localhost:5432/gold_pocket";
                 String userName = "postgres";
                 String password = "";
                 connection = DriverManager.getConnection(urlDB, userName, password);
